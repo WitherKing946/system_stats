@@ -1,18 +1,24 @@
-# System Resource Monitor
+# Sysmon - System Resource Monitor
 
-A lightweight system resource monitor written in **pure Bash**, with two modes:
+**Sysmon** is a lightweight, zero-dependency system resource monitor written entirely in **pure Bash**. It provides a clean, styled output of key system stats right in your terminal — no installation, no flags, no hassle.
 
-- **Terminal Mode**: Real-time updates in terminal
-- **GUI Mode**: Pseudo-GUI using styled terminal output (no external tools needed)
+## 🔧 Features
 
-## Author
+- Single-command launch
+- Works out-of-the-box on Linux, macOS, and Windows (via Git Bash or WSL)
+- No external tools or libraries required
+- Shows:
+  - Hostname
+  - Logged-in user
+  - Uptime
+  - Kernel version
+  - CPU load
+  - Memory usage
+  - Disk usage
+  - CPU temperature (if available)
 
-**Madhavan S**  
-GitHub ID: [@witherking946](https://github.com/witherking946)
-
-## Usage
+## 🚀 Usage
 
 ```bash
 chmod +x monitor.sh
-./monitor.sh        # Terminal mode
-./monitor.sh gui    # GUI mode
+./monitor.sh
