@@ -5,51 +5,38 @@
 # License: MIT (Xyspace Network)
 
 function draw_box() {
-    echo "+-----------------------------+"
-    printf "| %-27s |\n" "$1"
-    echo "+-----------------------------+"
+    echo "+------------------------------------------------------+"
+    printf "| %-50s |\n" "$1"
+    echo "+------------------------------------------------------+"
 }
 
-function gui_mode() {
+function sysmon() {
     clear
-    draw_box "SYSTEM RESOURCE MONITOR"
+    draw_box "SYSMON - SYSTEM RESOURCE MONITOR"
     echo
 
+    HOSTNAME=$(hostname)
+    UPTIME=$(uptime -p)
+    KERNEL=$(uname -r)
+    USER=$(whoami)
     CPU=$(top -bn1 | grep "load average" | awk '{print $10 $11 $12}')
     MEM=$(free -h | awk '/^Mem:/ {print $3 " used / " $2}')
     DISK=$(df -h / | awk 'NR==2 {print $3 " used / " $2}')
+    TEMP=$(sensors 2>/dev/null | grep -m 1 'temp1' | awk '{print $2}' || echo "N/A")
 
+    draw_box "Hostname: $HOSTNAME"
+    draw_box "User: $USER"
+    draw_box "Uptime: $UPTIME"
+    draw_box "Kernel: $KERNEL"
     draw_box "CPU Load: $CPU"
-    draw_box "Memory: $MEM"
-    draw_box "Disk: $DISK"
+    draw_box "Memory Usage: $MEM"
+    draw_box "Disk Usage: $DISK"
+    draw_box "CPU Temp: $TEMP"
 
     echo
     echo "Press any key to exit..."
     read -n 1 -s
 }
 
-function terminal_mode() {
-    echo "System Resource Monitor (Terminal Mode)"
-    echo "Press Ctrl+C to exit"
-    while true; do
-        clear
-        echo "CPU Load:"
-        top -bn1 | grep "load average" | awk '{print "Load Average: " $10 $11 $12}'
-
-        echo -e "\nMemory Usage:"
-        free -h | grep -v "Swap"
-
-        echo -e "\nDisk Usage:"
-        df -h | grep '^/'
-
-        sleep 2
-    done
-}
-
-MODE=$1
-
-if [ "$MODE" == "gui" ]; then
-    gui_mode
-else
-    terminal_mode
-fi
+# Run the monitor
+sysmon
