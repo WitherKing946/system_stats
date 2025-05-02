@@ -23,9 +23,11 @@ Sysmon is a lightweight, zero-dependency system resource monitor. It provides a 
 ## 🚀 Usage
 
 ### For Linux/macOS (using `monitor.sh`):
-Execute this:```
+Execute this:
+```
    chmod +x monitor.sh
-   ./monitor.sh```
+   ./monitor.sh
+```
 
 
 ### For Windows (using PowerShell, `sysmon.ps1`):
