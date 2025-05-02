@@ -33,7 +33,12 @@ Execute this:```
 3. If you are running the script for the first time, you might need to allow script execution. Run the following command in PowerShell to enable script execution:
    ```Set-ExecutionPolicy RemoteSigned -Scope CurrentUser```
 4. Run the script:
+```.\sysmon.ps1
 ```
+5. If script fails to execute:
+Files downloaded from the internet sometimes need to be unblocked
+```Unblock-File -Path .\sysmon.ps1```
+
 
 ### Author
 - Madhavan S  
