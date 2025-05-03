@@ -1,6 +1,6 @@
-# Sysmon - System Resource Monitor
+# System Stats - System Resource Monitor
 
-Sysmon is a lightweight, zero-dependency system resource monitor. It provides a clean, styled output of key system stats directly in your terminal, without the need for installation or flags. It works on Linux, macOS, and Windows with minimal setup!
+System Stats is a lightweight, zero-dependency system resource monitor. It provides a clean, styled output of key system stats directly in your terminal, without the need for installation or flags. It works on Linux, macOS, and Windows with minimal setup!
 
 ## Preview
 
