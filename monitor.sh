@@ -12,7 +12,7 @@ function draw_box() {
 
 function sysmon() {
     clear
-    draw_box "SYSMON - SYSTEM RESOURCE MONITOR"
+    draw_box "SYSTEM STATS - SYSTEM RESOURCE MONITOR"
     echo
 
     HOSTNAME=$(hostname)
@@ -24,14 +24,7 @@ function sysmon() {
     DISK=$(df -h / | awk 'NR==2 {print $3 " used / " $2}')
     TEMP=$(sensors 2>/dev/null | grep -m 1 'temp1' | awk '{print $2}' || echo "N/A")
 
-    draw_box "Hostname: $HOSTNAME"
-    draw_box "User: $USER"
-    draw_box "Uptime: $UPTIME"
-    draw_box "Kernel: $KERNEL"
-    draw_box "CPU Load: $CPU"
-    draw_box "Memory Usage: $MEM"
-    draw_box "Disk Usage: $DISK"
-    draw_box "CPU Temp: $TEMP"
+    draw_box "Hostname: $HOSTNAME\nUser: $USER\nUptime: $UPTIME\nKernel: $KERNEL\nCPU Load: $CPU\nMemory Usage: $MEM\nDisk Usage: $DISK\nCPU Temp: $TEMP"
 
     echo
     echo "Press any key to exit..."
